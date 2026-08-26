@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb+srv://cloud_user:tiendat123@cluster0.3gb4fyy.mongodb.net/mern-demo?appName=Cluster0 
+
+  frontend:
+    build: ./client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
