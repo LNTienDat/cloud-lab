@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    image: lntiendat/mern-backend:1.0
+    container_name: mern-backend-hub
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb+srv://cloud_user:tiendat123@cluster0.3gb4fyy.mongodb.net/mern-demo?appName=Cluster0
+    networks:
+      mern-network:
+        aliases:
+          - backend
+          - mern-backend
+
+  frontend:
+    image: lntiendat/mern-frontend:1.0
+    container_name: mern-frontend-hub
+    ports:
+      - "3000:5173"
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
