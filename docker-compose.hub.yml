@@ -16,7 +16,7 @@ services:
           - mern-backend
 
   frontend:
-    image: lntiendat/mern-frontend:1.0
+    image: lntiendat/mern-frontend:2.0
     container_name: mern-frontend-hub
     ports:
       - "3000:5173"
